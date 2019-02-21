@@ -7,13 +7,15 @@ void *print_message_function( void *ptr );
 int main()
 {
 	pthread_t t1,t2;
-	char *message1 = "jadslk";
-	char *message2 = "jasd";
+	char *message1 = "Hello";
+	char *message2 = "World";
 	int iret1,iret2;
 
      iret1 = pthread_create( &t1, NULL, print_message_function, (void*) message1);
      iret2 = pthread_create( &t2, NULL, print_message_function, (void*) message2);
-
+	
+/*	 pthread_detach(t1);
+	 pthread_detach(t2);*/
 
      pthread_join( t1, NULL);
      pthread_join( t2, NULL); 
