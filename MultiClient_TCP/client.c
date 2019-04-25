@@ -24,7 +24,7 @@ void send_recv(int i, int sockfd)
 			send(sockfd, send_buf, strlen(send_buf), 0);
 	}else {
 		nbyte_recvd = recv(sockfd, recv_buf, BUFSIZE, 0);
-		recv_buf[nbyte_recvd] = '';
+		recv_buf[nbyte_recvd] = ' ';
 		printf("%s\n" , recv_buf);
 		fflush(stdout);
 	}
@@ -40,7 +40,7 @@ void connect_request(int *sockfd, struct sockaddr_in *server_addr)
 	server_addr->sin_family = AF_INET;
 	server_addr->sin_port = htons(4950);
 	server_addr->sin_addr.s_addr = inet_addr("127.0.0.1");
-	memset(server_addr->sin_zero, '', sizeof server_addr->sin_zero);
+	memset(server_addr->sin_zero, ' ', sizeof server_addr->sin_zero);
 	
 	if(connect(*sockfd, (struct sockaddr *)server_addr, sizeof(struct sockaddr)) == -1) {
 		perror("connect");

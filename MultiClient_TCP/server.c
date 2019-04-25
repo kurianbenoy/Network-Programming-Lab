@@ -73,7 +73,7 @@ void connect_request(int *sockfd, struct sockaddr_in *my_addr)
 	my_addr->sin_family = AF_INET;
 	my_addr->sin_port = htons(4950);
 	my_addr->sin_addr.s_addr = INADDR_ANY;
-	memset(my_addr->sin_zero, '', sizeof my_addr->sin_zero);
+	memset(my_addr->sin_zero, ' ', sizeof my_addr->sin_zero);
 		
 	if (setsockopt(*sockfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
 		perror("setsockopt");
